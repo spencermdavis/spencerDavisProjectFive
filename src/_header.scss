@@ -1,0 +1,61 @@
+header {
+  background-color: $darkestColour;
+  height: 70vh;
+  min-height: 600px;
+  position: relative;
+  flex: 1 0 auto;
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    z-index: 0;
+  }
+}
+
+h1 {
+  font-weight: 400;
+  text-shadow: 2px 2px 2px $accentColour;
+  margin-bottom: 2rem;
+  color: $lightestColour;
+}
+
+input[type="text"] {
+  background-color: $lightMidColour;
+  border: 1px solid $backgroundColour;
+  border-radius: 0.25em;
+  color: $darkestColour;
+}
+
+button {
+  background-color: $backgroundColour;
+  color: $lightestColour;
+  border-radius: 0.25em;
+  padding: 1rem 2rem 1rem 2rem;
+  box-shadow: 2px 2px 2px $darkestColour;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: $accentColour;
+}
+
+input[type="submit"]:active {
+  top: 1px;
+}
+
+::placeholder {
+  color: $darkestColour;
+}

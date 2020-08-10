@@ -1,0 +1,56 @@
+main {
+  position: relative;
+  padding: 5rem 0 5rem 0;
+  svg {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    overflow: hidden;
+    z-index: 0;
+  }
+  ul {
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-gap: 3rem;
+    margin-bottom: 15rem;
+    li {
+      background-color: $lightestColour;
+      color: $darkestColour;
+      display: flex;
+      flex-direction: column;
+      padding: 5rem;
+      border-radius: 0.5em;
+      position: relative;
+      min-height: 200px;
+      p {
+        border: 1px solid $accentColour;
+        padding: 1rem;
+      }
+      button {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        text-align: center;
+        z-index: 2;
+        background-color: $darkestColour;
+        color: $lightestColour;
+        border-radius: 0.25em;
+        padding: 1rem 2rem 1rem 2rem;
+        box-shadow: 5px 5px 5px rgba(39, 35, 35, 0.664);
+        transition: all 0.2s;
+        border-color: $darkestColour;
+        transition: all 0.2s;
+      }
+      button:hover,
+      button:focus {
+        background-color: $accentColour;
+        border-color: $accentColour;
+      }
+
+      button:active {
+        bottom: 19px;
+      }
+    }
+  }
+}
