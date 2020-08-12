@@ -2,4 +2,9 @@ footer {
   background-color: $darkestColour;
   flex-shrink: 0;
   text-align: center;
+  padding-bottom: 3rem;
+  p {
+    color: $lightestColour;
+    text-shadow: 1px 1px 2px $lightMidColour;
+  }
 }
