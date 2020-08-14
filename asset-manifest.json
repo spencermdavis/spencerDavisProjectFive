@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/spencerDavisProjectFive/static/css/main.bfd3b0aa.chunk.css",
+    "main.css": "/spencerDavisProjectFive/static/css/main.96b5405d.chunk.css",
     "main.js": "/spencerDavisProjectFive/static/js/main.3a5057e6.chunk.js",
     "main.js.map": "/spencerDavisProjectFive/static/js/main.3a5057e6.chunk.js.map",
     "runtime-main.js": "/spencerDavisProjectFive/static/js/runtime-main.6efc5dc2.js",
@@ -8,15 +8,15 @@
     "static/js/2.5ff10cf9.chunk.js": "/spencerDavisProjectFive/static/js/2.5ff10cf9.chunk.js",
     "static/js/2.5ff10cf9.chunk.js.map": "/spencerDavisProjectFive/static/js/2.5ff10cf9.chunk.js.map",
     "index.html": "/spencerDavisProjectFive/index.html",
-    "precache-manifest.f3baa2a8fbd60897d583ee0ed721e132.js": "/spencerDavisProjectFive/precache-manifest.f3baa2a8fbd60897d583ee0ed721e132.js",
+    "precache-manifest.121082bf43eda97a943f2356dab2fc3f.js": "/spencerDavisProjectFive/precache-manifest.121082bf43eda97a943f2356dab2fc3f.js",
     "service-worker.js": "/spencerDavisProjectFive/service-worker.js",
-    "static/css/main.bfd3b0aa.chunk.css.map": "/spencerDavisProjectFive/static/css/main.bfd3b0aa.chunk.css.map",
+    "static/css/main.96b5405d.chunk.css.map": "/spencerDavisProjectFive/static/css/main.96b5405d.chunk.css.map",
     "static/js/2.5ff10cf9.chunk.js.LICENSE.txt": "/spencerDavisProjectFive/static/js/2.5ff10cf9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6efc5dc2.js",
     "static/js/2.5ff10cf9.chunk.js",
-    "static/css/main.bfd3b0aa.chunk.css",
+    "static/css/main.96b5405d.chunk.css",
     "static/js/main.3a5057e6.chunk.js"
   ]
 }
