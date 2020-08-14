@@ -7,4 +7,12 @@ footer {
     color: $lightestColour;
     text-shadow: 1px 1px 2px $lightMidColour;
   }
+  a {
+    color: $lightestColour;
+    transition: color 0.3s;
+  }
+  a:hover,
+  a:focus {
+    color: $accentColour;
+  }
 }

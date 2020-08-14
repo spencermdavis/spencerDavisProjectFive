@@ -1,17 +1,61 @@
 header {
   background-color: $darkestColour;
+  color: $lightestColour;
   height: 70vh;
   min-height: 900px;
   position: relative;
   flex: 1 0 auto;
   .wrapper {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .inputBox {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     position: relative;
     text-align: center;
+    background-color: $backgroundColour;
+    border: 3px solid $lightestColour;
+    padding: 5rem 0 5rem 0;
+    border-radius: 0.5em;
+    box-shadow: 5px 5px 5px rgba(39, 35, 35, 0.664);
+    position: relative;
+    top: -175px;
+  }
+
+  p {
+    text-shadow: 2px 2px 2px $accentColour;
+    margin-bottom: 2rem;
+    color: $lightestColour;
+    max-width: 40%;
+  }
+
+  button {
+    background-color: $darkestColour;
+    color: $lightestColour;
+    border-radius: 0.25em;
+    padding: 1rem 2rem 1rem 2rem;
+    box-shadow: 2px 2px 2px rgba(39, 35, 35, 0.664);
+    position: relative;
+    transition: background-color 0.2s;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: $accentColour;
+  }
+
+  button:active {
+    top: 1px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
   }
 
   svg {
@@ -24,17 +68,20 @@ header {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 600;
   text-shadow: 2px 2px 2px $accentColour;
   margin-bottom: 2rem;
   color: $lightestColour;
+  max-width: 60%;
 }
 
 input[type="text"] {
-  background-color: $lightMidColour;
-  border: 1px solid $backgroundColour;
+  background-color: $darkestColour;
+  border: 1px solid $lightestColour;
   border-radius: 0.25em;
-  color: $darkestColour;
+  color: $accentColour;
+  padding: 1rem;
+  margin: 1rem 0 1rem 0;
 }
 
 button {
@@ -47,15 +94,6 @@ button {
   transition: background-color 0.2s;
 }
 
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  background-color: $accentColour;
-}
-
-input[type="submit"]:active {
-  top: 1px;
-}
-
 ::placeholder {
-  color: $darkestColour;
+  color: #dea07c;
 }

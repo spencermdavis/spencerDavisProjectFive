@@ -1,12 +1,19 @@
 main {
   position: relative;
   padding: 1rem 0 30rem 0;
+  .wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   svg {
     position: absolute;
     bottom: 0;
     text-align: center;
     overflow: hidden;
     z-index: 0;
+    margin-top: 5rem;
   }
   ul {
     z-index: 2;
@@ -48,23 +55,26 @@ main {
   cursor: pointer;
   perspective: 1000px;
   z-index: 2;
+  min-height: 500px;
 }
 
 .displayCardFront {
   box-shadow: 5px 5px 5px rgba(39, 35, 35, 0.664);
 
   .imageContainer {
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     img {
       max-height: 400px;
       align-self: center;
+      padding: 1rem;
+      border-bottom: 3px solid $lightestColour;
     }
   }
 
   h2 {
-    text-align: left;
-    align-self: left;
     margin-top: 0.5rem;
   }
 
@@ -93,7 +103,8 @@ main {
 }
 
 .displayCard:hover .displayCardInner,
-.displayCard:focus .displayCardInner {
+.displayCard:focus .displayCardInner,
+.displayCard:active .displayCardInner {
   transform: rotateY(180deg);
 }
 
@@ -112,11 +123,6 @@ main {
   text-shadow: 1px 1px 2px $lightMidColour;
   display: flex;
   flex-direction: column;
-  h3 {
-    text-align: left;
-    align-self: left;
-    font-weight: 400;
-  }
 }
 
 .displayCardBack {

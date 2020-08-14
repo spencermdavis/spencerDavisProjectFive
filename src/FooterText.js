@@ -5,12 +5,12 @@ const FooterText = () => {
     <div className="wrapper">
       <p>copyright &copy; spencer davis 2020</p>
       <p>
-        created @
-        <a href="https://junocollege.com/" target="_blank">
-          Juno College
-        </a>
+        created @<a href="https://junocollege.com/">Juno College</a>
       </p>
-      <p>data courtesy of the scryfall api</p>
+      <p>
+        data courtesy of the{" "}
+        <a href="https://scryfall.com/docs/api/">scryfall api</a>
+      </p>
     </div>
   );
 };

@@ -1,0 +1,24 @@
+@media (max-width: 1000px) {
+  .inputBox {
+    top: 0px !important;
+  }
+}
+
+@media (max-width: 1060px) {
+  main {
+    padding-bottom: 10rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .displayCardBack {
+    li {
+      width: 80%;
+    }
+  }
+}
+@media (max-width: 340px) {
+  .wrapper {
+    width: 90%;
+  }
+}

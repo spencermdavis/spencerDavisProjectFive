@@ -10,18 +10,14 @@ class CardInput extends Component {
     };
   }
 
+  // binds state to user input
   handleChange = (event) => {
-    this.setState(
-      {
-        userInput: event.target.value,
-      },
-      // necessary when we need to wait for state to finish setting before updating the page
-      () => {
-        console.log(this.state.userInput);
-      }
-    );
+    this.setState({
+      userInput: event.target.value,
+    });
   };
 
+  // updates database on click with user input
   handleClick = (event) => {
     event.preventDefault();
 
@@ -38,16 +34,29 @@ class CardInput extends Component {
   render() {
     return (
       <form action="submit">
-        <label htmlFor="newCard">Add a card to your collection</label>
+        <label htmlFor="newCard">Add a card to your collection: </label>
         <input
           onChange={this.handleChange}
-          // this is called "binding your input" and is a project 5 requirement
+          // binding input
           value={this.state.userInput}
           type="text"
           id="newCard"
+          autoComplete="off"
+          placeholder="Sol Ring"
+          required
+          tabIndex="0"
         />
-
-        <button onClick={this.handleClick}>Add Card</button>
+        {/* prevent user from submitting empty string */}
+        {!this.state.userInput.replace(/\s/g, "").length ? (
+          <button aria-label="card not yet input">Missing card input</button>
+        ) : (
+          <button
+            aria-label="add card to collection"
+            onClick={this.handleClick}
+          >
+            Add Card
+          </button>
+        )}
       </form>
     );
   }
