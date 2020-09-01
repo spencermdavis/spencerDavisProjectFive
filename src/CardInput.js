@@ -47,9 +47,7 @@ class CardInput extends Component {
           tabIndex="0"
         />
         {/* prevent user from submitting empty string */}
-        {!this.state.userInput.replace(/\s/g, "").length ? (
-          <button aria-label="card not yet input">Missing card input</button>
-        ) : (
+        {!this.state.userInput.replace(/\s/g, "").length ? null : (
           <button
             aria-label="add card to collection"
             onClick={this.handleClick}
