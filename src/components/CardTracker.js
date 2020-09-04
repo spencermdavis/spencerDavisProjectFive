@@ -6,28 +6,28 @@ class CardTracker extends Component {
     return (
       <ul>
         {/* returns api data for react to append to dom */}
-        {this.props.apiData.map((newCardObj, index) => {
+        {this.props.cards.map((newCardObj, index) => {
           return (
             <li key={index} className="displayCard">
               <div className="displayCardInner">
                 <div className="displayCardFront">
                   <div className="imageContainer">
                     <img
-                      src={newCardObj.image_uris.normal}
-                      alt={newCardObj.name}
-                      tabIndex="0"
+                      src={newCardObj.card.image_uris.normal}
+                      alt={newCardObj.card.name}
                     ></img>
-                    <h2 tabIndex="0">{newCardObj.name}</h2>
+                    <h2>{newCardObj.card.name}</h2>
                   </div>
                 </div>
                 <div className="displayCardBack">
                   <ul>
-                    <li tabIndex="0">mana cost: {newCardObj.mana_cost}</li>
-                    <li tabIndex="0">converted mana cost: {newCardObj.cmc}</li>
-                    <li tabIndex="0">oracle text: {newCardObj.oracle_text}</li>
+                    <li>mana cost: {newCardObj.card.mana_cost}</li>
+                    <li>converted mana cost: {newCardObj.cmc}</li>
+                    <li>oracle text: {newCardObj.card.oracle_text}</li>
                   </ul>
                   <DeleteButton
-                    thisIndex={index}
+                    tabIndex="0"
+                    thisCard={newCardObj}
                     cards={this.props.cards}
                     deleteCard={this.props.deleteCard}
                   />

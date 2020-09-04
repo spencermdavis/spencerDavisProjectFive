@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
+import "./styles/App.scss";
 import axios from "axios";
-import CardInput from "./CardInput";
-import "./App.scss";
-import CardTracker from "./CardTracker";
-import FooterText from "./FooterText";
+import CardTracker from "./components/CardTracker";
+import FooterText from "./components/FooterText";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       cards: [],
-      cardData: {},
-      apiCards: [],
+      userInput: "",
+      card: [],
     };
   }
 
@@ -35,36 +34,51 @@ class App extends Component {
         newCardsArray.push(newCardObj);
       }
 
-      const axiosArr = [];
-
-      for (let propertyName in data) {
-        const newerCardObj = {
-          name: data[propertyName],
-        };
-        axiosArr.push(newerCardObj);
-      }
-
       // state setter sets state as arrays prepared from database snapshot
-      this.setState(
-        {
-          cards: newCardsArray,
-          cardData: axiosArr,
-        },
-        // callback structure ensures api call stateful array is ready to be passed
-        () => {
-          axios
-            .post("https://api.scryfall.com/cards/collection", {
-              identifiers: this.state.cardData,
-            })
-            .then((response) => {
-              this.setState({
-                apiCards: response.data.data,
-              });
-            });
-        }
-      );
+      this.setState({
+        cards: newCardsArray,
+      });
     });
   }
+
+  // updates database on click with user input
+  handleClick = (event) => {
+    event.preventDefault();
+
+    axios({
+      url: `https://api.scryfall.com/cards/named`,
+      method: `GET`,
+      responseType: `json`,
+      params: {
+        exact: `${this.state.userInput}`,
+      },
+    })
+      .then((response) => {
+        this.setState(
+          {
+            card: response.data,
+          },
+          () => {
+            const dbRef = firebase.database().ref();
+            dbRef.push(this.state.card);
+          }
+        );
+      })
+      .catch((error) => {
+        alert("Invalid card name! Please ensure correct spelling.");
+      });
+
+    this.setState({
+      userInput: "",
+    });
+  };
+
+  // binds state to user input
+  handleChange = (event) => {
+    this.setState({
+      userInput: event.target.value,
+    });
+  };
 
   // database deletion function
   deleteCard = (cardID) => {
@@ -85,7 +99,28 @@ class App extends Component {
                 that card to your collection. invalid card names will not update
                 your list.
               </p>
-              <CardInput />
+              <form action="submit">
+                <label htmlFor="newCard">Add a card to your collection: </label>
+                <input
+                  onChange={this.handleChange}
+                  // binding input
+                  value={this.state.userInput}
+                  type="text"
+                  id="newCard"
+                  autoComplete="off"
+                  placeholder="Sol Ring"
+                  tabIndex="0"
+                />
+                {/* prevent user from submitting empty string */}
+                {!this.state.userInput.replace(/\s/g, "").length ? null : (
+                  <button
+                    aria-label="add card to collection"
+                    onClick={this.handleClick}
+                  >
+                    Add Card
+                  </button>
+                )}
+              </form>
             </div>
           </div>
           <svg
@@ -109,9 +144,7 @@ class App extends Component {
             <CardTracker
               deleteCard={this.deleteCard}
               cards={this.state.cards}
-              apiData={this.state.apiCards}
             />
-            {/* <ApiAppender apiData={this.state.apiCards} /> */}
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
