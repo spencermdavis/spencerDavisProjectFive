@@ -93,6 +93,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <a href="#mainContent" class="skip-link">
+          Jump directly to main content
+        </a>
         <header>
           <div className="wrapper">
             <div className="inputBox">
@@ -145,7 +148,7 @@ class App extends Component {
             ></path>
           </svg>
         </header>
-        <main>
+        <main id="main">
           <div className="wrapper">
             <CardTracker
               deleteCard={this.deleteCard}
