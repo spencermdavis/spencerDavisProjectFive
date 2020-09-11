@@ -93,10 +93,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <a href="#mainContent" class="skip-link">
-          Jump directly to main content
-        </a>
         <header>
+          <a href="#mainContent" className="skip-link">
+            Jump directly to main content
+          </a>
           <div className="wrapper">
             <div className="inputBox">
               <h1>magic: the gathering collection manager</h1>
@@ -148,7 +148,7 @@ class App extends Component {
             ></path>
           </svg>
         </header>
-        <main id="main">
+        <main id="mainContent">
           <div className="wrapper">
             <CardTracker
               deleteCard={this.deleteCard}
