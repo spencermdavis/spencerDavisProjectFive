@@ -61,16 +61,19 @@ class App extends Component {
           () => {
             const dbRef = firebase.database().ref();
             dbRef.push(this.state.card);
+            alert(`Added ${this.state.userInput} to your collection!`);
+            this.setState({
+              userInput: "",
+            });
           }
         );
       })
       .catch((error) => {
         alert("Invalid card name! Please ensure correct spelling.");
+        this.setState({
+          userInput: "",
+        });
       });
-
-    this.setState({
-      userInput: "",
-    });
   };
 
   // binds state to user input
@@ -93,8 +96,8 @@ class App extends Component {
         <header>
           <div className="wrapper">
             <div className="inputBox">
-              <h1 tabIndex="0">magic: the gathering collection manager</h1>
-              <p tabIndex="0">
+              <h1>magic: the gathering collection manager</h1>
+              <p>
                 type a magic:the gathering card name into the box below to add
                 that card to your collection. invalid card names will not update
                 your list.
@@ -112,7 +115,9 @@ class App extends Component {
                   tabIndex="0"
                 />
                 {/* prevent user from submitting empty string */}
-                {!this.state.userInput.replace(/\s/g, "").length ? null : (
+                {!this.state.userInput.replace(/\s/g, "").length ? (
+                  <span>Awaiting input...</span>
+                ) : (
                   <button
                     aria-label="add card to collection"
                     onClick={this.handleClick}

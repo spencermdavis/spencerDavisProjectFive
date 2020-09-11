@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DeleteButton from "./DeleteButton";
+import DisplayCard from "./DisplayCard";
 
 class CardTracker extends Component {
   render() {
@@ -9,30 +9,16 @@ class CardTracker extends Component {
         {this.props.cards.map((newCardObj, index) => {
           return (
             <li key={index} className="displayCard">
-              <div className="displayCardInner">
-                <div className="displayCardFront">
-                  <div className="imageContainer">
-                    <img
-                      src={newCardObj.card.image_uris.normal}
-                      alt={newCardObj.card.name}
-                    ></img>
-                    <h2>{newCardObj.card.name}</h2>
-                  </div>
-                </div>
-                <div className="displayCardBack">
-                  <ul>
-                    <li>mana cost: {newCardObj.card.mana_cost}</li>
-                    <li>converted mana cost: {newCardObj.cmc}</li>
-                    <li>oracle text: {newCardObj.card.oracle_text}</li>
-                  </ul>
-                  <DeleteButton
-                    tabIndex="0"
-                    thisCard={newCardObj}
-                    cards={this.props.cards}
-                    deleteCard={this.props.deleteCard}
-                  />
-                </div>
-              </div>
+              <DisplayCard
+                thisCard={newCardObj}
+                cards={this.props.cards}
+                deleteCard={this.props.deleteCard}
+                image={newCardObj.card.image_uris.normal}
+                name={newCardObj.card.name}
+                mana_cost={newCardObj.card.mana_cost}
+                cmc={newCardObj.cmc}
+                oracle_text={newCardObj.card.oracle_text}
+              ></DisplayCard>
             </li>
           );
         })}

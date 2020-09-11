@@ -18,6 +18,17 @@
   }
 }
 
+@media (max-width: 615px) {
+  .inputBox {
+    h1 {
+      max-width: 80%;
+    }
+    p {
+      max-width: 70%;
+    }
+  }
+}
+
 @media (max-width: 340px) {
   .wrapper {
     width: 90%;
