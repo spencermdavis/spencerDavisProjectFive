@@ -113,6 +113,7 @@ class App extends Component {
                   autoComplete="off"
                   placeholder="Sol Ring"
                   tabIndex="0"
+                  aria-label="text input for magic card"
                 />
                 {/* prevent user from submitting empty string */}
                 {!this.state.userInput.replace(/\s/g, "").length ? (
