@@ -16,7 +16,7 @@ class CardTracker extends Component {
                 image={newCardObj.card.image_uris.normal}
                 name={newCardObj.card.name}
                 mana_cost={newCardObj.card.mana_cost}
-                cmc={newCardObj.cmc}
+                cmc={newCardObj.card.cmc}
                 oracle_text={newCardObj.card.oracle_text}
               ></DisplayCard>
             </li>
