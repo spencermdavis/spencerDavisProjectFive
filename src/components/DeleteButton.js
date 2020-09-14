@@ -5,6 +5,7 @@ const DeleteButton = (props) => {
     <button
       tabIndex="0"
       aria-label="delete card from collection"
+      className="deleteButton"
       onClick={() => {
         props.deleteCard(props.thisCard.id);
       }}

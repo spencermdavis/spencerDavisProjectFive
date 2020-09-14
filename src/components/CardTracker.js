@@ -8,7 +8,7 @@ class CardTracker extends Component {
         {/* returns api data for react to append to dom */}
         {this.props.cards.map((newCardObj, index) => {
           return (
-            <li key={index} className="displayCard">
+            <li key={index} className="displayCard" tabIndex="0">
               <DisplayCard
                 thisCard={newCardObj}
                 cards={this.props.cards}

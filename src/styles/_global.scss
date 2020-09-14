@@ -52,7 +52,8 @@ svg {
 
 // skip link styles
 
-.skip-link {
+.skip-link,
+.cardFlip {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
@@ -60,7 +61,8 @@ svg {
   white-space: nowrap;
   width: 1px;
 }
-.skip-link:focus {
+.skip-link:focus,
+.cardFlip:focus {
   clip: auto;
   height: auto;
   overflow: auto;
