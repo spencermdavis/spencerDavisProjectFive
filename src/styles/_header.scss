@@ -1,8 +1,8 @@
 header {
   background-color: $darkestColour;
   color: $lightestColour;
-  height: 70vh;
-  min-height: 900px;
+  min-height: 1100px;
+  height: 90vh;
   position: relative;
   flex: 1 0 auto;
   .wrapper {
@@ -97,4 +97,40 @@ button {
 
 ::placeholder {
   color: #dea07c;
+}
+
+.filterButtons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  background-color: #555a49;
+  padding: 2rem;
+  border-radius: 0.5em;
+  box-shadow: 2px 2px 2px rgba(39, 35, 35, 0.664);
+  border: 2px solid $lightestColour;
+  .filterList {
+    background-color: $darkestColour;
+    color: $lightestColour;
+    border: 1px solid $lightestColour;
+    border-radius: 0.25em;
+    padding: 1rem;
+  }
+  a {
+    background-color: $darkestColour;
+    color: $lightestColour;
+    border-radius: 0.25em;
+    padding: 1rem 2rem 1rem 2rem;
+    box-shadow: 2px 2px 2px rgba(39, 35, 35, 0.664);
+    position: relative;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+  }
+  a:hover,
+  a:focus {
+    background-color: $accentColour;
+  }
+
+  a:active {
+    top: 1px;
+  }
 }
