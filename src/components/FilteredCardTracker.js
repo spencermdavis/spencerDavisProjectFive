@@ -6,9 +6,11 @@ const FilteredCardTracker = (props) => {
     <ul>
       {/* returns api data for react to append to dom */}
       {props.cards.map((newCardObj, index) => {
-        return (
-          <li key={index} className="displayCard" tabIndex="0">
-            {newCardObj.card.mana_cost.includes(props.color) ? (
+        if (
+          newCardObj.card.mana_cost.includes(props.color.toLocaleUpperCase())
+        ) {
+          return (
+            <li key={index} className="displayCard" tabIndex="0">
               <DisplayCard
                 thisCard={newCardObj}
                 cards={props.cards}
@@ -19,9 +21,9 @@ const FilteredCardTracker = (props) => {
                 cmc={newCardObj.card.cmc}
                 oracle_text={newCardObj.card.oracle_text}
               ></DisplayCard>
-            ) : null}
-          </li>
-        );
+            </li>
+          );
+        }
       })}
     </ul>
   );

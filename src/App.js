@@ -3,6 +3,7 @@ import firebase from "./firebase";
 import "./styles/App.scss";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import FilterForm from "./components/FilterForm";
 import CardTracker from "./components/CardTracker";
 import FilteredCardTracker from "./components/FilteredCardTracker";
 import FooterText from "./components/FooterText";
@@ -86,7 +87,8 @@ class App extends Component {
     });
   };
 
-  handleFliter = (event) => {
+  // populate state with selected color
+  handleFilter = (event) => {
     this.setState({
       color: event.target.value,
     });
@@ -126,7 +128,7 @@ class App extends Component {
                     type="text"
                     id="newCard"
                     autoComplete="off"
-                    placeholder="Sol Ring"
+                    placeholder="ex: Sol Ring"
                     tabIndex="0"
                     aria-label="text input for magic card"
                   />
@@ -143,19 +145,24 @@ class App extends Component {
                   )}
                 </form>
                 <div className="filterButtons">
-                  <select name="mana color" id="mana color" autoComplete="off">
-                    <option value="0">Mana Color</option>
-                    <option value="1">White</option>
-                    <option value="2">Blue</option>
-                    <option value="3">Black</option>
-                    <option value="4">Red</option>
-                    <option value="5">Green</option>
-                  </select>
-                  <button>
-                    <Link to="/filteredCards" onClick={this.handleFliter}>
-                      Show cards of selected color
-                    </Link>
-                  </button>
+                  <FilterForm handleFilter={this.handleFilter} />
+                  <Link
+                    to="/filteredCards"
+                    aria-label="assign filter color to collection"
+                  >
+                    Filter Collection
+                  </Link>
+                  <Link
+                    to="/"
+                    aria-label="clear filter and return to home page"
+                    onClick={() => {
+                      this.setState({
+                        color: "",
+                      });
+                    }}
+                  >
+                    Clear Filters
+                  </Link>
                 </div>
               </div>
             </div>
@@ -206,17 +213,18 @@ class App extends Component {
                   );
                 }}
               />
-            </div>
-            <button>
               <Link
                 to="/"
-                onClick={this.setState({
-                  color: "",
-                })}
+                aria-label="clear filter and return to home page"
+                onClick={() => {
+                  this.setState({
+                    color: "",
+                  });
+                }}
               >
                 Clear Filters
               </Link>
-            </button>
+            </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1440 320"
