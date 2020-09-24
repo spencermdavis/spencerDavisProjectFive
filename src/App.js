@@ -153,7 +153,7 @@ class App extends Component {
                     Filter Collection
                   </Link>
                   <Link
-                    to="/"
+                    to="/spencerDavisProjectFive"
                     aria-label="clear filter and return to home page"
                     onClick={() => {
                       this.setState({
@@ -186,7 +186,7 @@ class App extends Component {
             <div className="wrapper">
               <Route
                 exact
-                path="/"
+                path="/spencerDavisProjectFive"
                 render={() => {
                   return (
                     <>
@@ -214,7 +214,7 @@ class App extends Component {
                 }}
               />
               <Link
-                to="/"
+                to="/spencerDavisProjectFive"
                 aria-label="clear filter and return to home page"
                 onClick={() => {
                   this.setState({
